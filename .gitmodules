@@ -1,0 +1,6 @@
+[submodule "python/PyFlowOpenCv"]
+	path = python/PyFlowOpenCv
+	url = https://github.com/wonderworks-software/PyFlowOpenCv
+[submodule "python/opencv-pipeline"]
+	path = python/opencv-pipeline
+	url = https://github.com/michaelgallacher/opencv-pipeline.git
