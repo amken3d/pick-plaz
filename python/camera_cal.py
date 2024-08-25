@@ -10,8 +10,8 @@ import config
 #should be the center pos of the aruco matrix in machine coordinates
 CALIBRATION_POS = config.CALIBRATION_CENTER
 
-aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_100)
-arucoParams = cv2.aruco.DetectorParameters_create()
+aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_100)
+arucoParams = cv2.aruco.DetectorParameters()
 
 def calibrate(robot, camera):
     """

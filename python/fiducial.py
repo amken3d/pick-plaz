@@ -15,7 +15,10 @@ class FiducialMultiDetector:
     def __init__(self, eye, radius_list=[1, 0.7/2]):
         self.fd = [FiducialDetector(eye, radius=r) for r in radius_list]
         self.eye = eye
-        self.shape = eye.get_valid_image().shape
+        if eye.get_valid_image() is not None:
+            self.shape = eye.get_valid_image().shape
+        else:
+            self.shape = [10, 10]
 
     def __call__(self):
         positions = []

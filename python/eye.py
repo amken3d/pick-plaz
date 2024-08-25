@@ -26,8 +26,11 @@ class Eye:
 
         self.robot.done()
         time.sleep(0.6)
-        image = self.camera.cache["image"]
-        image = self.ip.project(image)
+        if 'image' in self.camera.cache:
+            image = self.camera.cache["image"]
+            image = self.ip.project(image)
+        else:
+            image = None
         return image
 
     def get_pos_from_image_indices(self, index_x, index_y):
