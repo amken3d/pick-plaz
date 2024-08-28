@@ -1,8 +1,9 @@
-
+import logging
 import time
 import queue
 import pickle
 import os
+from sys import exc_info
 
 import cv2
 import numpy as np
@@ -24,6 +25,7 @@ import config
 from hole_finder import NoBeltHoleFoundException
 from hole_finder import HoleFinder
 
+
 class LiveCam:
 
     def __init__(self, camera, cal, nav_camera):
@@ -31,7 +33,7 @@ class LiveCam:
         res = nav_camera["res"]
         width = nav_camera["width"]
         height = nav_camera["height"]
-        h = calibrator.Homography(cal, int(res), (int(res*width),int(res*height)))
+        h = calibrator.Homography(cal, int(res), (int(res * width), int(res * height)))
         self.ip = calibrator.ImageProjector(h, border_value=(31, 23, 21))
 
     def get_cam(self):
@@ -44,9 +46,11 @@ class LiveCam:
             cam_image = cam_image
         return cam_image
 
+
 class AbortException(Exception):
     """ All calibration is broken"""
     pass
+
 
 class StateContext:
     def __init__(self, robot, camera, context, context_manager, event_queue):
@@ -61,24 +65,26 @@ class StateContext:
         self.alert_id = 0
         self.do_pause = False
 
+        logging.debug("Initializing navigation parameters.")
         self.nav = {
             "camera": {
                 "x": 0,
                 "y": 0,
                 "width": 35.0,
                 "height": 35.0,
-                "res": 20, # resolution in pixel per millimeter
+                "res": 20,  # resolution in pixel per millimeter
                 "framenr": 1245,
             },
             "bed": config.BED_AREA,
             "bed_shapes": [
-                [config.CALIBRATION_CENTER[0]-55/2,config.CALIBRATION_CENTER[1]-55/2,55,55], #calibration pcb
-                [0,63.14,413.86,175.31],       #main area
-                [33.75, 253.4, 50, 90],       #bottomup
+                [config.CALIBRATION_CENTER[0] - 55 / 2, config.CALIBRATION_CENTER[1] - 55 / 2, 55, 55],
+                #calibration pcb
+                [0, 63.14, 413.86, 175.31],  #main area
+                [33.75, 253.4, 50, 90],  #bottomup
             ],
             "pcb": {
                 "transform": [1, 0, 0, -1, 10, -10],
-                "transform_mse" : 0.1,
+                "transform_mse": 0.1,
                 "fiducials": {},
             },
             # "pcb": {
@@ -92,7 +98,7 @@ class StateContext:
             # },
             "detection": {
                 "fiducial": [0, 0],
-                "belt": [0,0]
+                "belt": [0, 0]
             },
             "state": "idle",
             "light": {
@@ -101,6 +107,7 @@ class StateContext:
                 "tray": False
             }
         }
+        logging.info("Initializing robot boundaries.")
         self.robot.x_bounds = (config.BED_AREA[0], config.BED_AREA[2])
         self.robot.y_bounds = (config.BED_AREA[1], config.BED_AREA[3])
 
@@ -109,8 +116,9 @@ class StateContext:
                 self.nav["pcb"]["fiducials"] = json.load(f)
                 self._recalculate_fiducial_transform()
                 fiducals_assigned = True
-                print("fiducial data restored from 'fiducial.json'")
+                logging.info("fiducial data restored from 'fiducial.json'")
         except FileNotFoundError:
+            logging.warning("Fiducial data file not found; using default values.")
             fiducals_assigned = False
 
         self.robot.pos_logger = self.nav["camera"]
@@ -120,6 +128,7 @@ class StateContext:
             with open("cal.pkl", "rb") as f:
                 self.cal = pickle.load(f)
         except FileNotFoundError:
+            logging.error("Calibration file not found; using default calibration.")
             self._push_alert(f"Calibration not found. Using default calibration instead. Please calibrate.")
             with open("default_cal.pkl", "rb") as f:
                 self.cal = pickle.load(f)
@@ -154,69 +163,96 @@ class StateContext:
     def run(self):
 
         state = self.init_state
-        while(True):
+        while (True):
+            logging.debug("Transitioning to next state.")
             state = state()
 
     def idle_state(self):
 
+        logging.info("Entering idle state.")
         self.nav["state"] = "idle"
 
         item = self.event_queue.get()
         if item["type"] == "init":
+            logging.debug("Received 'init' event, transitioning to init state.")
             return self.init_state
         else:
+            logging.debug(f"Received event: {item['type']}, handling as common event.")
             self._handle_common_event(item)
 
         return self.idle_state
 
     def init_state(self):
-
+        """
+        Initializes the machine to its starting configuration.
+        """
+        logging.info("Entering init state.")
         self.nav["state"] = "init"
 
         #set robot to initial state
         try:
+            logging.debug("Resetting machine to initial state.")
             self.robot.vacuum(False)
             self.robot.valve(False)
             self.robot.home()
+            logging.info("Machine initialized successfully.")
         except AbortException as e:
+            logging.error("Initialization aborted.", exc_info=True)
             self._push_alert(e)
             return self.idle_state
 
         return self.setup_state
 
     def get_cam(self):
+        """
+        Get live camera image.
+        """
+        logging.debug("Fetching live camera image.")
         return self.live_cam.get_cam()
 
     def _pcb2robot(self, x, y):
-        m = np.array(self.nav["pcb"]["transform"]).reshape((3,2)).T
-        x, y = m[:2,:2] @ (x, y) + m[:2,2]
+        """
+                Transforms PCB coordinates to robot coordinates.
+
+                Args:
+                    x (float): X coordinate on the PCB.
+                    y (float): Y coordinate on the PCB.
+
+                Returns:
+                    tuple: Transformed (x, y) coordinates for the robot.
+        """
+        logging.debug(f"Transforming PCB coordinates to robot coordinates: ({x}, {y})")
+        m = np.array(self.nav["pcb"]["transform"]).reshape((3, 2)).T
+        x, y = m[:2, :2] @ (x, y) + m[:2, 2]
         return x, y
 
     def _pcb2robot2(self, x, y, a):
-        m = np.array(self.nav["pcb"]["transform"]).reshape((3,2)).T
-        a = a * np.pi/180
+        m = np.array(self.nav["pcb"]["transform"]).reshape((3, 2)).T
+        a = a * np.pi / 180
+        logging.debug(f"Converted angle to radians: ")
         x2 = x + np.cos(a)
         y2 = y + np.sin(a)
 
-        x, y = m[:2,:2] @ (x, y) + m[:2,2]
+        x, y = m[:2, :2] @ (x, y) + m[:2, 2]
 
-        x2, y2 = m[:2,:2] @ (x2, y2) + m[:2,2]
+        x2, y2 = m[:2, :2] @ (x2, y2) + m[:2, 2]
 
-        a = np.arctan2(y2-y, x2-x)
-        a = a*180/np.pi
+        a = np.arctan2(y2 - y, x2 - x)
+        a = a * 180 / np.pi
 
         return x, y, a
 
     def setup_state(self):
         """ In this state, the user makes machine setup and can freely roam the pick-platz bed"""
-
+        logging.info("Entering setup state.")
         self.nav["state"] = "setup"
         self._prepare_light()
 
         try:
             item = self.event_queue.get()
+            logging.debug(f"Event received: {item}")
             if item["type"] == "setpos":
-
+                logging.info("Handling 'setpos' event.")
                 x = item["x"]
                 y = item["y"]
                 if item["system"] == "pcb":
@@ -227,7 +263,7 @@ class StateContext:
 
                 self.robot.default_settings()
                 self.robot.drive(x, y)
-
+                logging.debug(f"Robot driven to position: ({x}, {y}).")
                 # p.make_collage(self.robot, self.camera)
 
                 if self.event_queue.empty():
@@ -236,56 +272,70 @@ class StateContext:
                     #there is still a big lag spike everytime this section is attempted
                     try:
                         self.nav["detection"]["belt"] = self.hole_finder.find_hole()
+                        logging.info("Belt hole detected.")
                     except NoBeltHoleFoundException:
+                        logging.warning("No belt hole found.")
                         pass
                     if self.event_queue.empty():
                         #try to abort if possible, else make the next visual search
                         try:
                             self.nav["detection"]["fiducial"] = self.fd()
+                            logging.info("Fiducial detected.")
                         except fiducial.NoFiducialFoundException:
                             self.nav["detection"]["fiducial"] = (0, 0)
+                            logging.warning("No fiducial found; defaulting to (0, 0).")
 
             elif item["type"] == "event_setfiducial":
+                logging.info("Handling 'event_setfiducial' event.")
                 if item["method"] == "assign":
                     self.nav["pcb"]["fiducials"][item["id"]] = (item["x"], item["y"])
                     self._recalculate_fiducial_transform()
                     self._save_fiducial_transform()
+                    logging.info(f"Assigned fiducial: {item['id']} at position ({item['x']}, {item['y']}).")
                 if item["method"] == "unassign":
                     try:
                         del self.nav["pcb"]["fiducials"][item["id"]]
                     except:
-                        pass #just means fiducial was already not assigned
+                        pass  #just means fiducial was already not assigned
                     self._recalculate_fiducial_transform()
                     self._save_fiducial_transform()
                 elif item["method"] == "reset":
                     self._reset_fiducials()
                     self._recalculate_fiducial_transform()
                     self._save_fiducial_transform()
+                    logging.info("Reset fiducials to default state.")
 
             elif item["type"] == "sequence":
                 if item["method"] == "play":
                     self.context_manager.file_save()
                     self._reset_error_parts()
+                    logging.info("Playing sequence.")
                     return self.run_state
                 elif item["method"] == "home":
                     self.robot.home()
                     self.robot.done()
                     self.robot.drive(0, 0)
+                    logging.info("Homed robot and driven to origin.")
                 elif item["method"] == "motor_off":
                     self.robot.steppers(False)
+                    logging.info("Turned off motors.")
                 elif item["method"] == "motor_on":
                     self.robot.steppers(True)
+                    logging.info("Turned on motors.")
                 elif item["method"] == "calibrate_topdn":
+                    logging.info("Handling 'calibrate_topdn' event.")
                     self.cal = camera_cal.calibrate(self.robot, self.camera)
                     with open("cal.pkl", "wb") as f:
                         pickle.dump(self.cal, f)
                 elif item["method"] == "calibrate_picker":
+                    logging.info("Handling 'calibrate_picker' event.")
                     try:
                         pos = (self.nav["camera"]["x"], self.nav["camera"]["y"])
                         self.picker.calibrate(pos, self.robot, self.camera)
                     except Exception as e:
-                        print(e)
+                        logging.error("An error occurred: %s", e, exc_info=True)
                 elif item["method"] == "auto_set_fiducial":
+                    logging.info("Handling 'auto_set_fiducial' event.")
                     self.robot.light_topdn(True)
                     self.robot.light_tray(False)
                     fiducial_designators = [part["designators"] for part in self.context["bom"] if part["fiducial"]][0]
@@ -293,19 +343,24 @@ class StateContext:
                     for name, part in fiducial_designators.items():
                         x, y = self._pcb2robot(float(part["x"]), float(part["y"]))
 
-                        self.robot.drive(x,y)
+                        self.robot.drive(x, y)
                         self.nav["pcb"]["fiducials"][name] = self.fd()
 
                 elif item["method"] == "shutdown":
+                    logging.info("Handling 'auto_set_fiducial' event.")
                     self.robot.light_topdn(False)
                     self.robot.light_botup(False)
                     self.robot.light_tray(False)
                     import subprocess
                     process = subprocess.run(['shutdown', '-h', '+0'],
-                                              stdout=subprocess.PIPE,
-                                              universal_newlines=True)
+                                             stdout=subprocess.PIPE,
+                                             universal_newlines=True)
                     if process.returncode != 0:
+                        logging.error("Shutdown command failed.")
                         self._push_alert("Shutdown failed")
+
+                #Todo: continue logging enhancements
+
                 elif item["method"] == "place_part":
                     name = item["param"]
                     part, partdes = self._get_part_from_designator(name)
@@ -313,6 +368,7 @@ class StateContext:
                         try:
                             self._place_part(part, partdes)
                         except Exception as e:
+                            logging.error("An error occurred: %s", e, exc_info=True)
                             self._push_alert(e)
                     else:
                         self._push_alert("designator not found '%s'", name)
@@ -369,6 +425,7 @@ class StateContext:
                 elif channel == "tray":
                     self.nav["light"]["tray"] = enable
             else:
+                logging.warning(f"Unhandled event type: {item['type']}. Passing to common event handler.")
                 self._handle_common_event(item)
 
         except calibrator.CalibrationError as e:
@@ -382,6 +439,7 @@ class StateContext:
         except AbortException as e:
             self._push_alert(e)
         except Exception as e:
+            logging.error("An error occurred: %s", e, exc_info=True)
             self._push_alert(e)
             return self.idle_state
 
@@ -393,7 +451,7 @@ class StateContext:
         self.nav["state"] = "run"
 
         try:
-            print("get next part information")
+            logging.info("get next part information")
             part, partdes = self._get_next_part_from_bom()
             if part is None:
                 self._push_alert("Placing finished")
@@ -458,7 +516,7 @@ class StateContext:
 
         self._poll_for_pause()
 
-        print("pick part")
+        logging.info("pick part")
         if feeder["type"] == tray.TYPE_NUMBER:
             self.tray.pick(feeder, self.robot)
         elif feeder["type"] == belt.TYPE_NUMBER:
@@ -470,7 +528,7 @@ class StateContext:
 
         self._poll_for_pause()
 
-        print("place part")
+        logging.info("place part")
         x, y = place_pos
         x, y, place_angle = self._pcb2robot2(x, y, place_angle)
         # make sure rotation is minimal
@@ -478,10 +536,10 @@ class StateContext:
             place_angle += 360
         if place_angle > 180:
             place_angle -= 360
-        # angle is is pcb coordinates, thus inverted
+        # angle is in pcb coordinates, thus inverted
         self.picker.place(self.robot, x, y, -place_angle)
 
-        print("update part state")
+        logging.info("update part state")
         partdes["state"] = data_manager.PART_STATE_PLACED
 
         self.robot.default_settings()
@@ -518,29 +576,34 @@ class StateContext:
             answers = ["OK"]
 
         self.nav["alert"] = {
-            "id" : self.alert_id,
-            "msg" : str(msg),
-            "answers" : [str(a) for a in answers],
+            "id": self.alert_id,
+            "msg": str(msg),
+            "answers": [str(a) for a in answers],
         }
 
         self.alert_id += 1
 
     def _reset_fiducials(self):
         self.nav["pcb"] = {
-                "transform": [1, 0, 0, -1, 10, -10],
-                "transform_mse" : 0.1,
-                "fiducials": {},
-            }
+            "transform": [1, 0, 0, -1, 10, -10],
+            "transform_mse": 0.1,
+            "fiducials": {},
+        }
 
     def _recalculate_fiducial_transform(self):
         try:
-            #refreshes everything on pcb except the fiducial
-            fiducial_designators = [part["designators"] for part in self.context["bom"] if part["fiducial"]][0]
-            transform, mse = fiducial.get_transform(self.nav["pcb"]["fiducials"], fiducial_designators)
-            self.nav["pcb"]["transform"] = transform
-            self.nav["pcb"]["transform_mse"] = float(mse)
+            # Refreshes everything on pcb except the fiducial
+            fiducial_designators_list = [part["designators"] for part in self.context["bom"] if part["fiducial"]]
+            if fiducial_designators_list:
+                fiducial_designators = fiducial_designators_list[0]
+                transform, mse = fiducial.get_transform(self.nav["pcb"]["fiducials"], fiducial_designators)
+                self.nav["pcb"]["transform"] = transform
+                self.nav["pcb"]["transform_mse"] = float(mse)
+            else:
+                logging.error("No fiducial designators found in BOM")
+                logging.info("No fiducial designators found in BOM")
         except Exception as e:
-            print("unchecked exception!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (please fix)")
+            logging.error("An error occurred: %s", e, exc_info=True)
             print(e)
             pass
 
@@ -564,20 +627,21 @@ def createdir(directory):
     except:
         pass
 
+
 def main(mock=False):
-    print("pick-plaz starting...")
+    logging.info("pick-plaz starting...")
     if mock:
-        print("starting in mock mode")
+        logging.info("starting in mock mode")
 
     createdir("user/context")
     createdir("template")
 
     event_queue = queue.Queue()
 
-    print("connect robot")
+    logging.info("Connected to controller on serial port")
     robot = save_robot.SaveRobot(None if mock else config.SERIALPORT)
 
-    print("connect camera")
+    logging.info("Camera connected")
     if not mock:
         c = camera.CameraThread(0)
     else:
@@ -594,16 +658,15 @@ def main(mock=False):
         lambda: s.center_pcb(),
         lambda: s.nav)
 
-
-    time.sleep(0.1) #give webserver thread time to start
-    print("pick-plaz running. press [ctrl]+[C] to shutdown")
+    time.sleep(0.1)  #give webserver thread time to start
+    logging.info("pick-plaz running. press [ctrl]+[C] to shutdown")
     with c:
         try:
             s.run()
         except KeyboardInterrupt:
             pass
-    print("")
-    print("parking robot")
+    logging.info("")
+    logging.info("Parking the machine")
 
     d.file_save()
 
@@ -611,7 +674,7 @@ def main(mock=False):
     robot.vacuum(False)
     robot.valve(False)
     robot.drive(z=0)
-    robot.drive(5,5) # drive close to home
+    robot.drive(5, 5)  # drive close to home
     robot.done()
     robot.dwell(1000)
     robot.steppers(False)
@@ -619,7 +682,8 @@ def main(mock=False):
     robot.light_botup(False)
     robot.light_tray(False)
 
-    print("finished")
+    logging.info("Finished run")
+
 
 if __name__ == "__main__":
     main()
