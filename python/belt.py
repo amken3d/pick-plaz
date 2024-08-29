@@ -1,6 +1,6 @@
 import hole_finder
 import numpy as np
-import config
+import config_old
 
 
 TYPE_NUMBER = 1

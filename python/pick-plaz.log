@@ -1,0 +1,439 @@
+2024-08-28 10:19:43,465 - root - INFO - pick-plaz starting...
+2024-08-28 10:19:43,465 - root - INFO - starting in mock mode
+2024-08-28 10:19:43,465 - root - INFO - Connected to controller on serial port
+2024-08-28 10:19:43,465 - root - INFO - Camera connected
+2024-08-28 10:19:43,466 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 10:19:43,466 - root - INFO - Initializing robot boundaries.
+2024-08-28 10:19:43,466 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 10:19:43,466 - root - INFO - No fiducial designators found in BOM
+2024-08-28 10:19:43,466 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 10:19:43,467 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 10:19:44,175 - root - INFO - pick-plaz running. press [ctrl]+[C] to shutdown
+2024-08-28 10:19:44,177 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:19:44,177 - root - INFO - Entering init state.
+2024-08-28 10:19:44,177 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 10:19:44,178 - root - INFO - Machine initialized successfully.
+2024-08-28 10:19:44,178 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:19:44,178 - root - INFO - Entering setup state.
+2024-08-28 10:40:02,891 - root - INFO - pick-plaz starting...
+2024-08-28 10:40:02,891 - root - INFO - starting in simulation mode
+2024-08-28 10:40:02,891 - root - INFO - Connected to controller on serial port
+2024-08-28 10:40:02,891 - root - INFO - Camera connected
+2024-08-28 10:40:02,892 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 10:40:02,892 - root - INFO - Initializing robot boundaries.
+2024-08-28 10:40:02,892 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 10:40:02,892 - root - INFO - No fiducial designators found in BOM
+2024-08-28 10:40:02,892 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 10:40:02,892 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 10:40:03,606 - root - INFO - pick-plaz running. press [ctrl]+[C] to shutdown
+2024-08-28 10:40:03,606 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:40:03,606 - root - INFO - Entering init state.
+2024-08-28 10:40:03,607 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 10:40:03,607 - root - INFO - Machine initialized successfully.
+2024-08-28 10:40:03,607 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:40:03,607 - root - INFO - Entering setup state.
+2024-08-28 10:45:40,546 - root - INFO - pick-plaz starting...
+2024-08-28 10:45:40,546 - root - INFO - Connected to controller on serial port
+2024-08-28 10:45:40,547 - root - INFO - Camera connected
+2024-08-28 10:45:40,548 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 10:45:40,548 - root - INFO - Initializing robot boundaries.
+2024-08-28 10:45:40,548 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 10:45:40,548 - root - INFO - No fiducial designators found in BOM
+2024-08-28 10:45:40,548 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 10:45:40,548 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 10:45:41,256 - root - INFO - pick-plaz running. press [ctrl]+[C] to shutdown
+2024-08-28 10:45:41,256 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:45:41,258 - root - INFO - Entering init state.
+2024-08-28 10:45:41,258 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 10:45:41,258 - root - INFO - Machine initialized successfully.
+2024-08-28 10:45:41,258 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:45:41,258 - root - INFO - Entering setup state.
+2024-08-28 10:56:51,416 - root - INFO - pick-plaz starting...
+2024-08-28 10:56:51,417 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001500B1C8500>, Camera Thread:<camera.CameraThreadMock object at 0x000001507FC7CCB0>, Data Manager:<data_manager.ContextManager object at 0x000001500B1C8680>, Queue:<queue.Queue object at 0x000001500B0657C0>
+2024-08-28 10:56:51,417 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 10:56:51,417 - root - INFO - Initializing robot boundaries.
+2024-08-28 10:56:51,417 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 10:56:51,417 - root - INFO - No fiducial designators found in BOM
+2024-08-28 10:56:51,417 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 10:56:51,418 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 10:56:52,128 - root - INFO - pick-plaz running. press [ctrl]+[C] to shutdown
+2024-08-28 10:56:52,128 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:56:52,129 - root - INFO - Entering init state.
+2024-08-28 10:56:52,129 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 10:56:52,130 - root - INFO - Machine initialized successfully.
+2024-08-28 10:56:52,130 - root - DEBUG - Transitioning to next state.
+2024-08-28 10:56:52,130 - root - INFO - Entering setup state.
+2024-08-28 12:02:58,028 - root - INFO - pick-plaz starting...
+2024-08-28 12:02:58,029 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002B6A185AC30>, Camera Thread:<camera.CameraThreadMock object at 0x000002B6A13504A0>, Data Manager:<data_manager.ContextManager object at 0x000002B6A29B5610>, Queue:<queue.Queue object at 0x000002B6A2A78F20>
+2024-08-28 12:02:58,029 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 12:02:58,029 - root - INFO - Initializing robot boundaries.
+2024-08-28 12:02:58,030 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 12:02:58,030 - root - INFO - No fiducial designators found in BOM
+2024-08-28 12:02:58,030 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 12:02:58,030 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 12:02:58,636 - root - INFO - Server initialized successfully.
+2024-08-28 12:02:58,637 - root - DEBUG - Transitioning to next state.
+2024-08-28 12:02:58,637 - root - INFO - Entering init state.
+2024-08-28 12:02:58,638 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 12:02:58,638 - root - INFO - Machine initialized successfully.
+2024-08-28 12:02:58,638 - root - DEBUG - Transitioning to next state.
+2024-08-28 12:02:58,638 - root - INFO - Entering setup state.
+2024-08-28 12:04:57,726 - root - INFO - pick-plaz starting...
+2024-08-28 12:04:57,727 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002D3FDB48530>, Camera Thread:<camera.CameraThreadMock object at 0x000002D3FDB48560>, Data Manager:<data_manager.ContextManager object at 0x000002D3FDB486B0>, Queue:<queue.Queue object at 0x000002D3FD9E56D0>
+2024-08-28 12:04:57,727 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 12:04:57,727 - root - INFO - Initializing robot boundaries.
+2024-08-28 12:04:57,727 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 12:04:57,727 - root - INFO - No fiducial designators found in BOM
+2024-08-28 12:04:57,727 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 12:04:57,727 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 12:04:58,339 - root - INFO - Server initialized successfully.
+2024-08-28 12:04:58,342 - root - DEBUG - Transitioning to next state.
+2024-08-28 12:04:58,343 - root - INFO - Entering init state.
+2024-08-28 12:04:58,343 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 12:04:58,344 - root - INFO - Machine initialized successfully.
+2024-08-28 12:04:58,344 - root - DEBUG - Transitioning to next state.
+2024-08-28 12:04:58,345 - root - INFO - Entering setup state.
+2024-08-28 12:09:18,407 - root - INFO - pick-plaz starting...
+2024-08-28 12:09:18,408 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001A1A497C4D0>, Camera Thread:<camera.CameraThreadMock object at 0x000001A1A376F8C0>, Data Manager:<data_manager.ContextManager object at 0x000001A1A488B140>, Queue:<queue.Queue object at 0x000001A1A48F3950>
+2024-08-28 12:09:18,408 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 12:09:18,408 - root - INFO - Initializing robot boundaries.
+2024-08-28 12:09:18,408 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 12:09:18,408 - root - INFO - No fiducial designators found in BOM
+2024-08-28 12:09:18,408 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 12:09:18,409 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 12:09:19,020 - root - INFO - Server initialized successfully.
+2024-08-28 12:09:19,022 - root - DEBUG - Transitioning to next state.
+2024-08-28 12:09:19,023 - root - INFO - Entering init state.
+2024-08-28 12:09:19,024 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 12:09:19,024 - root - INFO - Machine initialized successfully.
+2024-08-28 12:09:19,025 - root - DEBUG - Transitioning to next state.
+2024-08-28 12:09:19,025 - root - INFO - Entering setup state.
+2024-08-28 13:40:36,811 - root - INFO - pick-plaz starting...
+2024-08-28 13:40:36,811 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x00000228BE84C4D0>, Camera Thread:<camera.CameraThreadMock object at 0x00000228BE84C590>, Data Manager:<data_manager.ContextManager object at 0x00000228BE84EA80>, Queue:<queue.Queue object at 0x00000228BE77E0F0>
+2024-08-28 13:40:36,811 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 13:46:42,696 - root - INFO - pick-plaz starting...
+2024-08-28 13:46:42,697 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001C8A0148650>, Camera Thread:<camera.CameraThreadMock object at 0x000001C8A0148710>, Data Manager:<data_manager.ContextManager object at 0x000001C8A00F4D40>, Queue:<queue.Queue object at 0x000001C8A0115010>
+2024-08-28 13:46:42,697 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 13:46:52,298 - root - INFO - pick-plaz starting...
+2024-08-28 13:46:52,298 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001A1564C8470>, Camera Thread:<camera.CameraThreadMock object at 0x000001A1564C85F0>, Data Manager:<data_manager.ContextManager object at 0x000001A1564778F0>, Queue:<queue.Queue object at 0x000001A1563DE3F0>
+2024-08-28 13:46:52,298 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 13:47:46,976 - root - INFO - pick-plaz starting...
+2024-08-28 13:47:46,977 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001301A2BC560>, Camera Thread:<camera.CameraThreadMock object at 0x000001301A2BC4D0>, Data Manager:<data_manager.ContextManager object at 0x000001301A2BEC00>, Queue:<queue.Queue object at 0x00000130190486E0>
+2024-08-28 13:47:46,977 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 13:47:46,978 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 13:48:11,446 - root - INFO - pick-plaz starting...
+2024-08-28 13:48:11,447 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x00000286D9879FA0>, Camera Thread:<camera.CameraThreadMock object at 0x00000286D868DA90>, Data Manager:<data_manager.ContextManager object at 0x00000286D845FA40>, Queue:<queue.Queue object at 0x00000286D98F3BF0>
+2024-08-28 13:48:11,447 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 13:48:11,447 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 13:57:18,290 - root - INFO - pick-plaz starting...
+2024-08-28 13:57:18,291 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002A5BA27D940>, Camera Thread:<camera.CameraThreadMock object at 0x000002A5BB5383B0>, Data Manager:<data_manager.ContextManager object at 0x000002A5BB53AC00>, Queue:<queue.Queue object at 0x000002A5BB469F10>
+2024-08-28 13:57:18,291 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 13:57:18,291 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 13:57:18,291 - root - INFO - Initializing robot boundaries.
+2024-08-28 14:00:59,675 - root - INFO - pick-plaz starting...
+2024-08-28 14:00:59,676 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001F24285C320>, Camera Thread:<camera.CameraThreadMock object at 0x000001F24285C740>, Data Manager:<data_manager.ContextManager object at 0x000001F2428078F0>, Queue:<queue.Queue object at 0x000001F2426F7500>
+2024-08-28 14:00:59,676 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 14:00:59,676 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 14:00:59,676 - root - INFO - Initializing robot boundaries.
+2024-08-28 14:04:19,099 - root - INFO - pick-plaz starting...
+2024-08-28 14:04:19,101 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000023997A533E0>, Camera Thread:<camera.CameraThreadMock object at 0x00000239979A1F10>, Data Manager:<data_manager.ContextManager object at 0x0000023997AD94F0>, Queue:<queue.Queue object at 0x0000023997A66180>
+2024-08-28 14:04:19,101 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 14:04:19,101 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 14:04:19,102 - root - INFO - Initializing robot boundaries.
+2024-08-28 14:06:05,950 - root - INFO - pick-plaz starting...
+2024-08-28 14:06:05,951 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000022D257FC1A0>, Camera Thread:<camera.CameraThreadMock object at 0x0000022D26A6BBF0>, Data Manager:<data_manager.ContextManager object at 0x0000022D26AB9460>, Queue:<queue.Queue object at 0x0000022D24B2D520>
+2024-08-28 14:06:05,952 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 14:06:05,952 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 14:06:05,953 - root - INFO - Initializing robot boundaries.
+2024-08-28 14:06:05,953 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 14:06:05,953 - root - INFO - No fiducial designators found in BOM
+2024-08-28 14:06:05,953 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 14:06:05,953 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 14:06:06,561 - root - INFO - Server initialized successfully.
+2024-08-28 14:06:06,562 - root - DEBUG - Transitioning to next state.
+2024-08-28 14:06:06,562 - root - INFO - Entering init state.
+2024-08-28 14:06:06,562 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 14:06:06,562 - root - INFO - Machine initialized successfully.
+2024-08-28 14:06:06,562 - root - DEBUG - Transitioning to next state.
+2024-08-28 14:06:06,564 - root - INFO - Entering setup state.
+2024-08-28 15:01:28,320 - root - INFO - pick-plaz starting...
+2024-08-28 15:01:28,321 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000028A1F32D400>, Camera Thread:<camera.CameraThreadMock object at 0x0000028A1E005A90>, Data Manager:<data_manager.ContextManager object at 0x0000028A1F32EEA0>, Queue:<queue.Queue object at 0x0000028A1F32C740>
+2024-08-28 15:01:28,321 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:03:28,437 - root - INFO - pick-plaz starting...
+2024-08-28 15:03:28,438 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000024C85BB58E0>, Camera Thread:<camera.CameraThreadMock object at 0x0000024C85D188C0>, Data Manager:<data_manager.ContextManager object at 0x0000024C84AA84A0>, Queue:<queue.Queue object at 0x0000024C85CE25A0>
+2024-08-28 15:03:28,438 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:05:40,560 - root - INFO - pick-plaz starting...
+2024-08-28 15:05:40,561 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000020164C98350>, Camera Thread:<camera.CameraThreadMock object at 0x0000020164C984D0>, Data Manager:<data_manager.ContextManager object at 0x0000020164C993A0>, Queue:<queue.Queue object at 0x0000020164C67500>
+2024-08-28 15:05:40,561 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:13:37,330 - root - INFO - pick-plaz starting...
+2024-08-28 15:13:37,331 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001F590408740>, Camera Thread:<camera.CameraThreadMock object at 0x000001F590408800>, Data Manager:<data_manager.ContextManager object at 0x000001F590408560>, Queue:<queue.Queue object at 0x000001F5903BBBF0>
+2024-08-28 15:13:37,331 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:13:37,332 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:13:37,332 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:13:37,332 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:13:37,332 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:13:37,332 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:13:37,332 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:13:37,943 - root - INFO - Server initialized successfully.
+2024-08-28 15:13:37,945 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:13:37,945 - root - INFO - Entering init state.
+2024-08-28 15:13:37,945 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:13:37,946 - root - INFO - Machine initialized successfully.
+2024-08-28 15:13:37,947 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:13:37,947 - root - INFO - Entering setup state.
+2024-08-28 15:14:25,562 - root - INFO - pick-plaz starting...
+2024-08-28 15:14:25,564 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x00000233C9C48560>, Camera Thread:<camera.CameraThreadMock object at 0x00000233C9B79D30>, Data Manager:<data_manager.ContextManager object at 0x00000233C8807080>, Queue:<queue.Queue object at 0x00000233C875D0A0>
+2024-08-28 15:14:25,564 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:14:58,019 - root - INFO - pick-plaz starting...
+2024-08-28 15:14:58,020 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000025BCC30C590>, Camera Thread:<camera.CameraThreadMock object at 0x0000025BCC30C650>, Data Manager:<data_manager.ContextManager object at 0x0000025BCC30EC60>, Queue:<queue.Queue object at 0x0000025BCC286DB0>
+2024-08-28 15:14:58,020 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:15:17,834 - root - INFO - pick-plaz starting...
+2024-08-28 15:15:17,835 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002456611BC50>, Camera Thread:<camera.CameraThreadMock object at 0x00000245673B84D0>, Data Manager:<data_manager.ContextManager object at 0x00000245673B94C0>, Queue:<queue.Queue object at 0x0000024567364140>
+2024-08-28 15:15:17,835 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:17:54,715 - root - INFO - pick-plaz starting...
+2024-08-28 15:17:54,717 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000014AA49C8410>, Camera Thread:<camera.CameraThreadMock object at 0x0000014AA49C8590>, Data Manager:<data_manager.ContextManager object at 0x0000014AA49C95B0>, Queue:<queue.Queue object at 0x0000014AA3102C30>
+2024-08-28 15:17:54,717 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:18:23,305 - root - INFO - pick-plaz starting...
+2024-08-28 15:18:23,306 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000014DF33ABBF0>, Camera Thread:<camera.CameraThreadMock object at 0x0000014DF33F8320>, Data Manager:<data_manager.ContextManager object at 0x0000014DF33C1820>, Queue:<queue.Queue object at 0x0000014DF3329BB0>
+2024-08-28 15:18:23,306 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:18:54,220 - root - INFO - pick-plaz starting...
+2024-08-28 15:18:54,221 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002CC908579E0>, Camera Thread:<camera.CameraThreadMock object at 0x000002CC908D8440>, Data Manager:<data_manager.ContextManager object at 0x000002CC8F54A510>, Queue:<queue.Queue object at 0x000002CC907F1280>
+2024-08-28 15:18:54,221 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:18:54,222 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:18:54,222 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:18:54,222 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:18:54,222 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:18:54,222 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:18:54,222 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:18:54,833 - root - INFO - Server initialized successfully.
+2024-08-28 15:18:54,835 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:18:54,835 - root - INFO - Entering init state.
+2024-08-28 15:18:54,836 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:18:54,836 - root - INFO - Machine initialized successfully.
+2024-08-28 15:18:54,837 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:18:54,838 - root - INFO - Entering setup state.
+2024-08-28 15:19:22,974 - root - INFO - pick-plaz starting...
+2024-08-28 15:19:22,975 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001F40FD083B0>, Camera Thread:<camera.CameraThreadMock object at 0x000001F40FCD3320>, Data Manager:<data_manager.ContextManager object at 0x000001F40FD094C0>, Queue:<queue.Queue object at 0x000001F40EAAA5A0>
+2024-08-28 15:19:22,975 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:19:22,976 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:19:22,976 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:19:22,976 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:19:22,976 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:19:22,976 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:19:22,976 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:19:23,586 - root - INFO - Server initialized successfully.
+2024-08-28 15:19:23,588 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:19:23,588 - root - INFO - Entering init state.
+2024-08-28 15:19:23,589 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:19:23,589 - root - INFO - Machine initialized successfully.
+2024-08-28 15:19:23,590 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:19:23,590 - root - INFO - Entering setup state.
+2024-08-28 15:19:40,382 - root - INFO - pick-plaz starting...
+2024-08-28 15:19:40,383 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001EC57468320>, Camera Thread:<camera.CameraThreadMock object at 0x000001EC586A1370>, Data Manager:<data_manager.ContextManager object at 0x000001EC586A3EF0>, Queue:<queue.Queue object at 0x000001EC56B8AB70>
+2024-08-28 15:19:40,383 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:19:55,023 - root - INFO - pick-plaz starting...
+2024-08-28 15:19:55,023 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002370D6E6B10>, Camera Thread:<camera.CameraThreadMock object at 0x000002370F2184D0>, Data Manager:<data_manager.ContextManager object at 0x000002370DAA8560>, Queue:<queue.Queue object at 0x000002370F1E2A20>
+2024-08-28 15:19:55,024 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:20:15,773 - root - INFO - pick-plaz starting...
+2024-08-28 15:20:15,774 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002698C11D220>, Camera Thread:<camera.CameraThreadMock object at 0x000002698D3C8560>, Data Manager:<data_manager.ContextManager object at 0x000002698D3C95B0>, Queue:<queue.Queue object at 0x000002698C1FC740>
+2024-08-28 15:20:15,774 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:20:15,775 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:20:15,775 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:20:15,775 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:20:15,775 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:20:15,775 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:20:15,775 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:20:16,385 - root - INFO - Server initialized successfully.
+2024-08-28 15:20:16,387 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:20:16,387 - root - INFO - Entering init state.
+2024-08-28 15:20:16,388 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:20:16,388 - root - INFO - Machine initialized successfully.
+2024-08-28 15:20:16,388 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:20:16,389 - root - INFO - Entering setup state.
+2024-08-28 15:20:57,130 - root - INFO - pick-plaz starting...
+2024-08-28 15:20:57,131 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002A3A1FA85F0>, Camera Thread:<camera.CameraThreadMock object at 0x000002A3A1E45A90>, Data Manager:<data_manager.ContextManager object at 0x000002A3A1FA9610>, Queue:<queue.Queue object at 0x000002A3A1F34260>
+2024-08-28 15:20:57,131 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:21:30,444 - root - INFO - pick-plaz starting...
+2024-08-28 15:21:30,445 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000029C148F8530>, Camera Thread:<camera.CameraThreadMock object at 0x0000029C148C3320>, Data Manager:<data_manager.ContextManager object at 0x0000029C132EC770>, Queue:<queue.Queue object at 0x0000029C14876F90>
+2024-08-28 15:21:30,445 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:22:05,701 - root - INFO - pick-plaz starting...
+2024-08-28 15:22:05,702 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000002AF6EB78530>, Camera Thread:<camera.CameraThreadMock object at 0x000002AF6EB784A0>, Data Manager:<data_manager.ContextManager object at 0x000002AF6D8DDD30>, Queue:<queue.Queue object at 0x000002AF6EB43BF0>
+2024-08-28 15:22:05,702 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:22:05,703 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:22:05,703 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:22:05,703 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:22:05,703 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:22:05,703 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:22:05,704 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:22:06,313 - root - INFO - Server initialized successfully.
+2024-08-28 15:22:06,315 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:22:06,316 - root - INFO - Entering init state.
+2024-08-28 15:22:06,316 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:22:06,317 - root - INFO - Machine initialized successfully.
+2024-08-28 15:22:06,317 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:22:06,318 - root - INFO - Entering setup state.
+2024-08-28 15:22:19,759 - root - INFO - pick-plaz starting...
+2024-08-28 15:22:19,760 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001FF38EF83B0>, Camera Thread:<camera.CameraThreadMock object at 0x000001FF37CEB890>, Data Manager:<data_manager.ContextManager object at 0x000001FF38EFA960>, Queue:<queue.Queue object at 0x000001FF38E0F500>
+2024-08-28 15:22:19,760 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:22:36,078 - root - INFO - pick-plaz starting...
+2024-08-28 15:22:36,080 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000017A35079E50>, Camera Thread:<camera.CameraThreadMock object at 0x0000017A335F6C90>, Data Manager:<data_manager.ContextManager object at 0x0000017A351497C0>, Queue:<queue.Queue object at 0x0000017A33ED89B0>
+2024-08-28 15:22:36,080 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:22:45,312 - root - INFO - pick-plaz starting...
+2024-08-28 15:22:45,312 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001820C3706E0>, Camera Thread:<camera.CameraThreadMock object at 0x000001820C421790>, Data Manager:<data_manager.ContextManager object at 0x000001820C389D30>, Queue:<queue.Queue object at 0x000001820C408F20>
+2024-08-28 15:22:45,312 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:22:45,312 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:22:45,312 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:22:45,313 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:22:45,313 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:22:45,313 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:22:45,313 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:22:45,922 - root - INFO - Server initialized successfully.
+2024-08-28 15:22:45,924 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:22:45,924 - root - INFO - Entering init state.
+2024-08-28 15:22:45,926 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:22:45,927 - root - INFO - Machine initialized successfully.
+2024-08-28 15:22:45,927 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:22:45,928 - root - INFO - Entering setup state.
+2024-08-28 15:23:03,411 - root - INFO - pick-plaz starting...
+2024-08-28 15:23:03,411 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x00000221E97B5220>, Camera Thread:<camera.CameraThreadMock object at 0x00000221E99184A0>, Data Manager:<data_manager.ContextManager object at 0x00000221E98E3FB0>, Queue:<queue.Queue object at 0x00000221E98C9010>
+2024-08-28 15:23:03,411 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:23:03,412 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:23:03,412 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:23:03,412 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:23:03,412 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:23:03,412 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:23:03,413 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:23:04,022 - root - INFO - Server initialized successfully.
+2024-08-28 15:23:04,024 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:23:04,024 - root - INFO - Entering init state.
+2024-08-28 15:23:04,025 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:23:04,025 - root - INFO - Machine initialized successfully.
+2024-08-28 15:23:04,027 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:23:04,027 - root - INFO - Entering setup state.
+2024-08-28 15:23:25,388 - root - INFO - pick-plaz starting...
+2024-08-28 15:23:25,388 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x00000264993CC6B0>, Camera Thread:<camera.CameraThreadMock object at 0x00000264993CC770>, Data Manager:<data_manager.ContextManager object at 0x00000264993CED20>, Queue:<queue.Queue object at 0x000002649937BBF0>
+2024-08-28 15:23:25,389 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:23:25,389 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:23:25,389 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:23:25,390 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:23:25,390 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:23:25,390 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:23:25,390 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:23:26,000 - root - INFO - Server initialized successfully.
+2024-08-28 15:23:26,002 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:23:26,003 - root - INFO - Entering init state.
+2024-08-28 15:23:26,003 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:23:26,004 - root - INFO - Machine initialized successfully.
+2024-08-28 15:23:26,004 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:23:26,004 - root - INFO - Entering setup state.
+2024-08-28 15:23:39,760 - root - INFO - pick-plaz starting...
+2024-08-28 15:23:39,761 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x00000187CDE386E0>, Camera Thread:<camera.CameraThreadMock object at 0x00000187CDE38650>, Data Manager:<data_manager.ContextManager object at 0x00000187CDE39820>, Queue:<queue.Queue object at 0x00000187CCBE5EE0>
+2024-08-28 15:23:39,761 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:23:39,762 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:23:39,762 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:23:39,762 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:23:39,762 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:23:39,762 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:23:39,762 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:23:40,367 - root - INFO - Server initialized successfully.
+2024-08-28 15:23:40,367 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:23:40,367 - root - INFO - Entering init state.
+2024-08-28 15:23:40,367 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:23:40,369 - root - INFO - Machine initialized successfully.
+2024-08-28 15:23:40,369 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:23:40,369 - root - INFO - Entering setup state.
+2024-08-28 15:24:33,761 - root - INFO - pick-plaz starting...
+2024-08-28 15:24:33,763 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001EDAAAB8980>, Camera Thread:<camera.CameraThreadMock object at 0x000001EDAAC8D190>, Data Manager:<data_manager.ContextManager object at 0x000001EDABDE7080>, Queue:<queue.Queue object at 0x000001EDAABAD070>
+2024-08-28 15:24:33,763 - root - DEBUG - Initializing navigation parameters. Please ensure you have created the config.toml file.
+2024-08-28 15:24:33,763 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 15:24:33,763 - root - INFO - Initializing robot boundaries.
+2024-08-28 15:24:33,764 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 15:24:33,764 - root - INFO - No fiducial designators found in BOM
+2024-08-28 15:24:33,764 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 15:24:33,764 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 15:24:34,371 - root - INFO - Server initialized successfully.
+2024-08-28 15:24:34,372 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:24:34,373 - root - INFO - Entering init state.
+2024-08-28 15:24:34,373 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 15:24:34,373 - root - INFO - Machine initialized successfully.
+2024-08-28 15:24:34,374 - root - DEBUG - Transitioning to next state.
+2024-08-28 15:24:34,374 - root - INFO - Entering setup state.
+2024-08-28 19:36:23,933 - root - INFO - pick-plaz starting...
+2024-08-28 19:36:23,934 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x000001B10D7EAC90>, Camera Thread:<camera.CameraThreadMock object at 0x000001B10D7EAE70>, Data Manager:<data_manager.ContextManager object at 0x000001B10D809760>, Queue:<queue.Queue object at 0x000001B10C57E810>
+2024-08-28 19:36:23,934 - root - DEBUG - Initializing machine parameters. Please ensure you have created the config.toml file.
+2024-08-28 19:36:23,934 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 19:36:23,934 - root - INFO - Initializing robot boundaries.
+2024-08-28 19:36:23,935 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 19:36:23,935 - root - INFO - No fiducial designators found in BOM
+2024-08-28 19:36:23,935 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 19:36:23,935 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 19:36:24,547 - root - INFO - Server initialized successfully.
+2024-08-28 19:36:24,550 - root - DEBUG - Transitioning to next state.
+2024-08-28 19:36:24,550 - root - INFO - Entering init state.
+2024-08-28 19:36:24,551 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 19:36:24,552 - root - INFO - Machine initialized successfully.
+2024-08-28 19:36:24,552 - root - DEBUG - Transitioning to next state.
+2024-08-28 19:36:24,553 - root - INFO - Entering setup state.
+2024-08-28 22:02:23,003 - root - INFO - pick-plaz starting...
+2024-08-28 22:02:23,004 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000012EE48E8710>, Camera Thread:<camera.CameraThreadMock object at 0x0000012EE5B5AE70>, Data Manager:<data_manager.ContextManager object at 0x0000012EE5B71970>, Queue:<queue.Queue object at 0x0000012EE5A8F770>
+2024-08-28 22:02:23,004 - root - DEBUG - Initializing machine parameters. Please ensure you have created the config.toml file.
+2024-08-28 22:02:23,005 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 22:02:23,005 - root - INFO - Initializing robot boundaries.
+2024-08-28 22:02:23,006 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 22:02:23,006 - root - INFO - No fiducial designators found in BOM
+2024-08-28 22:02:23,006 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 22:02:23,006 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 22:02:23,619 - root - INFO - Server initialized successfully.
+2024-08-28 22:02:23,622 - root - DEBUG - Transitioning to next state.
+2024-08-28 22:02:23,622 - root - INFO - Entering init state.
+2024-08-28 22:02:23,623 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 22:02:23,624 - root - INFO - Machine initialized successfully.
+2024-08-28 22:02:23,625 - root - DEBUG - Transitioning to next state.
+2024-08-28 22:02:23,627 - root - INFO - Entering setup state.
+2024-08-28 22:02:33,535 - root - DEBUG - Fetching live camera image.
+2024-08-28 22:02:40,857 - root - DEBUG - Event received: {'type': 'alertquit', 'id': 0, 'answer': 'OK'}
+2024-08-28 22:02:40,859 - root - WARNING - Unhandled event type: alertquit. Passing to common event handler.
+2024-08-28 22:02:40,859 - root - DEBUG - Transitioning to next state.
+2024-08-28 22:02:40,860 - root - INFO - Entering setup state.
+2024-08-28 22:03:08,082 - root - DEBUG - Event received: {'type': 'setpos', 'x': 311.42857142857144, 'y': 212.72727272727272, 'system': 'global'}
+2024-08-28 22:03:08,083 - root - INFO - Handling 'setpos' event.
+2024-08-28 22:03:08,083 - root - DEBUG - Robot driven to position: (311.42857142857144, 212.72727272727272).
+2024-08-28 22:03:09,410 - root - INFO - Belt hole detected.
+2024-08-28 22:03:10,635 - root - WARNING - No fiducial found; defaulting to (0, 0).
+2024-08-28 22:03:10,636 - root - DEBUG - Transitioning to next state.
+2024-08-28 22:03:10,636 - root - INFO - Entering setup state.
+2024-08-28 22:03:51,772 - root - DEBUG - Event received: {'type': 'setpos', 'x': 312.2077922077922, 'y': 208.57142857142856, 'system': 'global'}
+2024-08-28 22:03:51,773 - root - INFO - Handling 'setpos' event.
+2024-08-28 22:03:51,773 - root - DEBUG - Robot driven to position: (312.2077922077922, 208.57142857142856).
+2024-08-28 22:03:53,192 - root - INFO - Belt hole detected.
+2024-08-28 22:03:54,414 - root - WARNING - No fiducial found; defaulting to (0, 0).
+2024-08-28 22:03:54,415 - root - DEBUG - Transitioning to next state.
+2024-08-28 22:03:54,415 - root - INFO - Entering setup state.
+2024-08-28 22:03:54,415 - root - DEBUG - Event received: {'type': 'setpos', 'x': 308.961038961039, 'y': 207.01298701298703, 'system': 'global'}
+2024-08-28 22:03:54,416 - root - INFO - Handling 'setpos' event.
+2024-08-28 22:03:54,416 - root - DEBUG - Robot driven to position: (308.961038961039, 207.01298701298703).
+2024-08-28 22:03:55,799 - root - INFO - Belt hole detected.
+2024-08-28 22:03:57,020 - root - INFO - Fiducial detected.
+2024-08-28 22:03:57,020 - root - DEBUG - Transitioning to next state.
+2024-08-28 22:03:57,020 - root - INFO - Entering setup state.
+2024-08-28 23:47:02,026 - root - INFO - pick-plaz starting...
+2024-08-28 23:47:02,026 - root - INFO - StateContext initialized with: Robot:<save_robot.SaveRobot object at 0x0000021D9C50EF00>, Camera Thread:<camera.CameraThreadMock object at 0x0000021D9C50F1A0>, Data Manager:<data_manager.ContextManager object at 0x0000021D9C535850>, Queue:<queue.Queue object at 0x0000021D9C42B170>
+2024-08-28 23:47:02,026 - root - DEBUG - Initializing machine parameters. Please ensure you have created the config.toml file.
+2024-08-28 23:47:02,027 - root - DEBUG - Initializing navigation parameters.
+2024-08-28 23:47:02,027 - root - INFO - Initializing robot boundaries.
+2024-08-28 23:47:02,027 - root - ERROR - No fiducial designators found in BOM
+2024-08-28 23:47:02,027 - root - INFO - No fiducial designators found in BOM
+2024-08-28 23:47:02,029 - root - INFO - fiducial data restored from 'fiducial.json'
+2024-08-28 23:47:02,029 - root - ERROR - Calibration file not found; using default calibration.
+2024-08-28 23:47:02,636 - root - INFO - Server initialized successfully.
+2024-08-28 23:47:02,636 - root - DEBUG - Transitioning to next state.
+2024-08-28 23:47:02,636 - root - INFO - Entering init state.
+2024-08-28 23:47:02,636 - root - DEBUG - Resetting machine to initial state.
+2024-08-28 23:47:02,636 - root - INFO - Machine initialized successfully.
+2024-08-28 23:47:02,636 - root - DEBUG - Transitioning to next state.
+2024-08-28 23:47:02,636 - root - INFO - Entering setup state.
+2024-08-28 23:47:23,050 - root - DEBUG - Fetching live camera image.
+2024-08-28 23:47:25,766 - root - DEBUG - Event received: {'type': 'alertquit', 'id': 0, 'answer': 'OK'}
+2024-08-28 23:47:25,766 - root - WARNING - Unhandled event type: alertquit. Passing to common event handler.
+2024-08-28 23:47:25,767 - root - DEBUG - Transitioning to next state.
+2024-08-28 23:47:25,767 - root - INFO - Entering setup state.

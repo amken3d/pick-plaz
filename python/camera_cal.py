@@ -5,13 +5,18 @@ import cv2
 import calibrator
 
 import debug
-import config
+import toml
 
+config = toml.load("config.toml")
 #should be the center pos of the aruco matrix in machine coordinates
-CALIBRATION_POS = config.CALIBRATION_CENTER
+calibration_center = config["machine"]["calibration_center"]
+calibration_offset = config["machine"]["calibration_offset"]
+CALIBRATION_POS = (calibration_center[0] + calibration_center[0], calibration_center[1] + calibration_center[1])
+print(CALIBRATION_POS)
 
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_100)
 arucoParams = cv2.aruco.DetectorParameters()
+
 
 def calibrate(robot, camera):
     """
@@ -21,15 +26,15 @@ def calibrate(robot, camera):
     #array of positions where a picture is taken. Ehere (0/0) is
     #the aruco center position
     positions = np.array([
-        (0,0),
-        (1,0),
-        (1,1),
-        (0,1),
-        (-1,1),
-        (-1,0),
-        (-1,-1),
-        (0,-1),
-        (1,-1),
+        (0, 0),
+        (1, 0),
+        (1, 1),
+        (0, 1),
+        (-1, 1),
+        (-1, 0),
+        (-1, -1),
+        (0, -1),
+        (1, -1),
     ]) * 10 + np.asarray(CALIBRATION_POS)[np.newaxis]
 
     markers_corners = []
@@ -38,11 +43,11 @@ def calibrate(robot, camera):
     robot.light_topdn(True)
     robot.light_tray(False)
 
-    for i, (x,y) in enumerate(positions):
+    for i, (x, y) in enumerate(positions):
         print(x, y)
         robot.drive(x, y)
         robot.done()
-        time.sleep(1.0) #@0.5s camera image was skewed/blurred
+        time.sleep(1.0)  #@0.5s camera image was skewed/blurred
 
         image = cv2.cvtColor(camera.cache["image"], cv2.COLOR_GRAY2BGR)
 

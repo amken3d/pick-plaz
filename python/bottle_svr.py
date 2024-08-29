@@ -48,7 +48,7 @@ class BottleServer:
             return "{}"
 
     def _nav(self):
-        return self.nav_fcn()
+        return self.nav_fcn
 
     def _context(self):
         return self.context.get()

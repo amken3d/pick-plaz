@@ -2,7 +2,7 @@ import numpy as np
 import math
 import debug
 import pick
-import config
+import config_old
 
 
 TYPE_NUMBER = 0

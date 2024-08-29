@@ -1,7 +1,7 @@
 import time
 import hole_finder
 import numpy as np
-import config
+import config_old
 
 
 TYPE_NUMBER = 2
@@ -44,7 +44,7 @@ class Roll:
 
         if only_camera == False:
             #normal case
-            self.picker.pick(robot, x, y, state["rot"], config.PICK_Z_ROLL)
+            self.picker.pick(robot, x, y, state["rot"], config_old.PICK_Z_ROLL)
         else:
             robot.drive(x, y)
 

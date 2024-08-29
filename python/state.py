@@ -21,9 +21,14 @@ import tray
 import roll
 import eye
 import json
-import config
+import config_old
+import toml
+import PCB
+import light
+from dotenv import load_dotenv
 from hole_finder import NoBeltHoleFoundException
 from hole_finder import HoleFinder
+
 
 
 class LiveCam:
@@ -43,8 +48,7 @@ class LiveCam:
         if self.ip is not None:
             cam_image = self.ip.project(cam_image)
         else:
-            cam_image = cam_image
-        return cam_image
+            return cam_image
 
 
 class AbortException(Exception):
@@ -53,8 +57,12 @@ class AbortException(Exception):
 
 
 class StateContext:
-    def __init__(self, robot, camera, context, context_manager, event_queue):
+    def __init__(self, robot, camera, context, context_manager, event_queue, light):
 
+        logging.debug("Initializing machine parameters. Please ensure you have created the config.toml file.")
+        config = toml.load("config.toml")
+        print(config)
+        self.light = light
         self.robot = robot
         self.camera = camera
         self.event_queue = event_queue
@@ -67,21 +75,9 @@ class StateContext:
 
         logging.debug("Initializing navigation parameters.")
         self.nav = {
-            "camera": {
-                "x": 0,
-                "y": 0,
-                "width": 35.0,
-                "height": 35.0,
-                "res": 20,  # resolution in pixel per millimeter
-                "framenr": 1245,
-            },
-            "bed": config.BED_AREA,
-            "bed_shapes": [
-                [config.CALIBRATION_CENTER[0] - 55 / 2, config.CALIBRATION_CENTER[1] - 55 / 2, 55, 55],
-                #calibration pcb
-                [0, 63.14, 413.86, 175.31],  #main area
-                [33.75, 253.4, 50, 90],  #bottomup
-            ],
+            "camera": config["camera"],
+            "bed": config["machine"],
+            "bed_shapes": config["work_area"],
             "pcb": {
                 "transform": [1, 0, 0, -1, 10, -10],
                 "transform_mse": 0.1,
@@ -108,8 +104,8 @@ class StateContext:
             }
         }
         logging.info("Initializing robot boundaries.")
-        self.robot.x_bounds = (config.BED_AREA[0], config.BED_AREA[2])
-        self.robot.y_bounds = (config.BED_AREA[1], config.BED_AREA[3])
+        self.robot.x_bounds = (config['machine']['bed_area'][0], config['machine']['bed_area'][2])
+        self.robot.y_bounds = (config['machine']['bed_area'][1], config['machine']['bed_area'][3])
 
         try:
             with open("user/fiducial.json") as f:
@@ -243,7 +239,7 @@ class StateContext:
         return x, y, a
 
     def setup_state(self):
-        """ In this state, the user makes machine setup and can freely roam the pick-platz bed"""
+        """ In this state, the user makes machine setup and can freely roam the pick-plaz bed"""
         logging.info("Entering setup state.")
         self.nav["state"] = "setup"
         self._prepare_light()
@@ -628,61 +624,114 @@ def createdir(directory):
         pass
 
 
+# Introduce constants for literals
+DIRECTORY1 = "user/context"
+DIRECTORY2 = "template"
+START_MESSAGE = "pick-plaz starting..."
+SIMULATION_MESSAGE = "starting in simulation mode"
+CONNECTED_MESSAGE = "Connected to controller on serial port"
+CAMERA_MESSAGE = "Camera connected"
+RUNNING_MESSAGE = "pick-plaz running. press [ctrl]+[C] to shutdown"
+PARKING_MESSAGE = "Parking the machine"
+FINISH_MESSAGE = "Finished run"
+
+
 def main(mock=False):
-    logging.info("pick-plaz starting...")
-    if mock:
-        logging.info("starting in mock mode")
+    setup_logging()
+    setup_directories()
+    queue = create_queue()
+    robot = connect_robot(mock)
+    camera_thread = connect_camera(mock)
+    data_manager = initialize_data()
+    state_context = initialize_state_context(robot, camera_thread, data_manager, queue, light)
+    server = initialize_server(state_context, data_manager, queue)
+    run_application(state_context, camera_thread)
+    terminate_application(data_manager, robot)
 
-    createdir("user/context")
-    createdir("template")
 
-    event_queue = queue.Queue()
+def setup_logging():
+    logging.info(START_MESSAGE)
 
-    logging.info("Connected to controller on serial port")
-    robot = save_robot.SaveRobot(None if mock else config.SERIALPORT)
 
-    logging.info("Camera connected")
+def setup_directories():
+    createdir(DIRECTORY1)
+    createdir(DIRECTORY2)
+
+
+def create_queue():
+    return queue.Queue()
+
+
+def connect_robot(mock):
     if not mock:
-        c = camera.CameraThread(0)
+        logging.info(CONNECTED_MESSAGE)
+    return save_robot.SaveRobot(None if mock else os.getenv("SERIAL_PORT"))
+
+
+def connect_camera(mock):
+    if not mock:
+        logging.info(CAMERA_MESSAGE)
+        return camera.CameraThread(0)
     else:
-        c = camera.CameraThreadMock()
+        return camera.CameraThreadMock()
 
-    d = data_manager.ContextManager()
 
-    s = StateContext(robot, c, d.get(), d, event_queue)
+def initialize_data():
+    return data_manager.ContextManager()
 
-    b = bottle_svr.BottleServer(
-        lambda: s.get_cam(),
-        lambda x: event_queue.put(x),
-        d,
-        lambda: s.center_pcb(),
-        lambda: s.nav)
 
-    time.sleep(0.1)  #give webserver thread time to start
-    logging.info("pick-plaz running. press [ctrl]+[C] to shutdown")
-    with c:
-        try:
-            s.run()
-        except KeyboardInterrupt:
-            pass
-    logging.info("")
-    logging.info("Parking the machine")
+def initialize_state_context(robot, camera_thread, data_manager, queue, light):
+    logging.info(
+        f"StateContext initialized with: Robot:{robot}, "
+        f"Camera Thread:{camera_thread}, "
+        f"Data Manager:{data_manager}, "
+        f"Queue:{queue}")
+    return StateContext(robot, camera_thread, data_manager.get(), data_manager, queue,light)
 
-    d.file_save()
 
-    # park robot
-    robot.vacuum(False)
-    robot.valve(False)
-    robot.drive(z=0)
-    robot.drive(5, 5)  # drive close to home
-    robot.done()
-    robot.dwell(1000)
-    robot.steppers(False)
-    robot.light_topdn(False)
-    robot.light_botup(False)
-    robot.light_tray(False)
+def initialize_server(state_context, data_manager, queue):
+    try:
+        server = bottle_svr.BottleServer(
+            state_context.get_cam,
+            queue.put,
+            data_manager,
+            state_context.center_pcb,
+            state_context.nav
+        )
+        logging.info("Server initialized successfully.")
+        return server
+    except Exception as e:
+        logging.error(f"Failed to initialize the server: {str(e)}")
+        raise
 
-    logging.info("Finished run")
+
+def run_application(state_context, camera_thread):
+    try:
+        # Assuming camera_thread accommodates context management
+        with camera_thread:
+            state_context.run()  # Potential Exceptions may originate from here
+            logging.info(RUNNING_MESSAGE)
+
+    except KeyboardInterrupt:
+        logging.error("The operation was interrupted.")
+    except Exception as e:
+        logging.error(f"An error occurred: {str(e)}")
+
+
+def terminate_application(data_manager, robot):
+    try:
+        logging.info(PARKING_MESSAGE)
+
+        data_manager.file_save()
+
+        robot.manage_robot()
+
+        logging.info(FINISH_MESSAGE)
+    except KeyboardInterrupt:
+        logging.error("The operation was interrupted.")
+    except Exception as e:
+        logging.error(f"An error occurred while terminating the application: {str(e)}")
+        raise
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 
 import debug
-import config
+import config_old
 
 class NoPartFoundException(Exception):
     pass
@@ -48,7 +48,7 @@ class Picker():
 
         return pos[0], pos[1], a[0]
 
-    def pick(self, robot, x, y, angle, pick_depth=config.PICK_Z_PLACE, done_time=None):
+    def pick(self, robot, x, y, angle, pick_depth=config_old.PICK_Z_PLACE, done_time=None):
         print(f"pick z={pick_depth}")
         vacuum_time = time.time() + 1
         robot.vacuum(True)
@@ -73,7 +73,7 @@ class Picker():
         # robot.drive(e=0, r=10.0)
         # robot.drive(e=0, f=200, r=0.75)
 
-    def place(self, robot, x, y, angle, pick_depth=config.PICK_Z_PLACE):
+    def place(self, robot, x, y, angle, pick_depth=config_old.PICK_Z_PLACE):
         print(f"place z={pick_depth}")
         robot.drive(x=x+self.DX, y=y+self.DY, e=angle, f=200, r=10.0)
         robot.drive(e=angle)
